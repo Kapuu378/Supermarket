@@ -1,5 +1,4 @@
-import os
-import sys
+from context import *
+from sample.devoto import Devoto
 
-ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-CSV_PATH = os.path.abspath(os.path.join(ROOT_PATH, 'csv'))
+print(Devoto)
