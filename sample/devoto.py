@@ -1,4 +1,5 @@
 from .supermarket import Supermarkets
+from datetime import datetime
 import pandas as pd
 import os
 
@@ -36,7 +37,8 @@ class Devoto(Supermarkets):
                 continue               
     
     def save_to_csv(self):
+        current_date = datetime.today().toordinal()
         self.products_dataframe.to_csv(
-            os.path.join(self.path_to_csv, f"devoto_{self.current_date}.csv")
+            os.path.join(self.path_to_csv, f"devoto_{current_date}.csv")
         )
         print(self.products_dataframe)
