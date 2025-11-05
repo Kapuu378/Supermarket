@@ -35,3 +35,6 @@ class Supermarkets:
         api_string = api_res.content
         parsed_res = json.loads(api_string)
         return parsed_res
+
+    def remove_duplicates(self) -> None:
+        self.products_dataframe.drop_duplicates(subset='product_id')

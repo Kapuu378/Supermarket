@@ -12,4 +12,5 @@ for id in devoto.cluster_ids:
 	devoto.set_items(res)
 	print(id)
 
+devoto.remove_duplicates()
 devoto.save_to_csv()
