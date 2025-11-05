@@ -7,9 +7,9 @@ devoto = Devoto(
 				)
 print(devoto.path_to_cluster_ids)
 for id in devoto.cluster_ids:
-	raw_res = devoto.request_api(id)
-	parsed_res = devoto.parse_api_res(raw_res)
-	devoto.set_items(parsed_res)
+	res = devoto.request_api(id)
+	#parsed_res = devoto.parse_api_res(raw_res)
+	devoto.set_items(res)
 	print(id)
 
 devoto.save_to_csv()

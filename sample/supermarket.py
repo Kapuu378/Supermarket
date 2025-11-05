@@ -28,7 +28,8 @@ class Supermarkets:
         time.sleep(0.35)
         self.current_cluster_id = cluster_id
         api_response = self.request.get(self.api_url + str(cluster_id), verify=False)
-        return api_response
+        parsed_api_res = self.parse_api_res(api_response)
+        return parsed_api_res
 
     def parse_api_res(self, api_res: req.Response) -> dict:
         api_string = api_res.content
