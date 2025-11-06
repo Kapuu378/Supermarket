@@ -37,4 +37,4 @@ class Supermarkets:
         return parsed_res
 
     def remove_duplicates(self) -> None:
-        self.products_dataframe.drop_duplicates(subset='product_id')
+        self.products_dataframe.drop_duplicates(subset='product_id', inplace=True)
