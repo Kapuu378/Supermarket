@@ -1,5 +1,15 @@
 from context import *
 from sample.devoto import Devoto
+from dotenv import load_dotenv
+import os
+
+load_dotenv(
+    dotenv_path=os.path.join(
+        ROOT_PATH, 'utils/sql_credentials.env')
+)
+
+MY_ENV_VAR = os.getenv('TEST')
+print(MY_ENV_VAR)
 
 devoto = Devoto(
 	path_to_cluster_ids = os.path.join(ROOT_PATH, "utils/devoto_cluster_ids.plk"),
