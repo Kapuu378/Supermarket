@@ -16,7 +16,9 @@ class Supermarkets:
             "product_name": [],
             "brand": [],
             "link": [],
-            "listed_price": []
+            "listed_price": [],
+            "supermarket_name": [],
+            "date": []
         })
 
     def load_cluster_ids(self) -> None:
@@ -24,7 +26,6 @@ class Supermarkets:
             return pickle.load(plk)
 
     def request_api(self, cluster_id: int = 1) -> req.Response:
-        print(cluster_id)
         time.sleep(0.35)
         self.current_cluster_id = cluster_id
         api_response = self.request.get(self.api_url + str(cluster_id), verify=False)
