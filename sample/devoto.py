@@ -7,7 +7,6 @@ class Devoto(Supermarkets):
     def __init__(self, path_to_cluster_ids):
         self.api_url: str = "https://www.devoto.com.uy/api/catalog_system/pub/products/search?fq=productClusterIds:"
         self.path_to_cluster_ids = path_to_cluster_ids
-        #self.path_to_csv = path_to_csv
         super().__init__()
 
     def set_items(self, parsed_res: list):
@@ -38,9 +37,3 @@ class Devoto(Supermarkets):
                 continue
 
         print(self.products_dataframe)
-
-    #def save_to_csv(self):
-    #    current_date = datetime.today().toordinal()
-    #    self.products_dataframe.to_csv(
-    #        os.path.join(self.path_to_csv, f"devoto_{current_date}.csv")
-    #    )

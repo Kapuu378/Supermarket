@@ -10,7 +10,6 @@ for id in devoto.cluster_ids:
 	#parsed_res = devoto.parse_api_res(raw_res)
 	devoto.set_items(res)
 	print(id)
-	break
 
 devoto.remove_duplicates()
 devoto.upload_to_db()

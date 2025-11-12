@@ -5,7 +5,7 @@ import time
 import pickle
 import json
 
-from MySQLdb import _mysql
+import MySQLdb
 from dotenv import load_dotenv
 import os
 
@@ -54,16 +54,22 @@ class Supermarkets:
 
     def upload_to_db(self):
         for index, row in self.products_dataframe.iterrows():
-            db =_mysql.connect(
+            db = MySQLdb.connect(
                 "FranciscoGibert.mysql.pythonanywhere-services.com",
                 USERNAME,
                 PASSWORD,
                 "FranciscoGibert$prices"
             )
-            db.query(f"""
+            #c = db.cursor()
+
+            #c.query(
+            #f"""INSERT INTO products(cluster_id, product_id, product_name, brand, link, listed_price, supermarket_name, date)
+            #VALUES({row['cluster_id']}, {row['product_id']}, "{row['product_name']}", "{row['brand']}", "{row['link']}", {row['listed_price']},"{row['supermarket_name']}", "{row['date']}"
+            #);""")
+
+            c = db.cursor()
+            c.execute("""
             INSERT INTO products(cluster_id, product_id, product_name, brand, link, listed_price, supermarket_name, date)
-            VALUES({row['cluster_id']},{row['product_id']},'{row['product_name']}','{row['brand']}','{row['link']}',{row['listed_price']},'{row['supermarket_name']}','{row['date']}'
-            );""")
-
-
+            VALUES(%s,%s,%s,%s,%s,%s,%s,%s);""", (row['cluster_id'], row['product_id'], row['product_name'], row['brand'], row['link'], row['listed_price'], row['supermarket_name'], row['date']))
+            db.commit()
 
