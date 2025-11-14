@@ -1,3 +1,4 @@
+from context import *
 import requests
 import time
 import pickle
@@ -9,7 +10,7 @@ urllib3.disable_warnings()
 empty_cluster_ids = []
 valid_cluster_ids = []
 
-filepath = "/home/soporte/im5456448/Escritorio/supermarkets/utils"
+filepath = os.path.join(ROOT_PATH, "utils")
 
 if os.path.exists(f"{filepath}/empty_cluster_ids.plk"):
 	with open(f"{filepath}/empty_cluster_ids.plk", "rb") as file:
@@ -47,8 +48,8 @@ while True:
 	except:
 		break
 
-with open("/home/soporte/im5456448/Escritorio/supermarkets/utils/valid_cluster_ids.plk", 'wb') as file:
+with open(f"{filepath}/valid_cluster_ids.plk", 'wb') as file:
 	pickle.dump(valid_cluster_ids, file)
 	
-with open("/home/soporte/im5456448/Escritorio/supermarkets/utils/empty_cluster_ids.plk", 'wb') as file:
+with open(f"{filepath}/empty_cluster_ids.plk", 'wb') as file:
 	pickle.dump(empty_cluster_ids, file)
