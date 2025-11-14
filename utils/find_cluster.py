@@ -20,7 +20,7 @@ if os.path.exists(f"{filepath}/valid_cluster_ids.plk"):
 		valid_cluster_ids = pickle.load(file)
 
 while True:
-	print(empty_cluster_ids, "       ", valid_cluster_ids)
+	print(empty_cluster_ids, "   \n\n", valid_cluster_ids)
 	try:
 		i = random.randint(3777, 15000)
 
@@ -33,7 +33,7 @@ while True:
 		print(f"Buscando {i}")
 
 		time.sleep(
-			random.randint(2,10)
+			random.randint(2,60)
 		)
 		res = requests.get(f"https://www.devoto.com.uy/api/catalog_system/pub/products/search?fq=productClusterIds:{i}", verify=False)
 
