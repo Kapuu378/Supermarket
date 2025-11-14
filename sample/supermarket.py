@@ -60,12 +60,6 @@ class Supermarkets:
                 PASSWORD,
                 "FranciscoGibert$prices"
             )
-            #c = db.cursor()
-
-            #c.query(
-            #f"""INSERT INTO products(cluster_id, product_id, product_name, brand, link, listed_price, supermarket_name, date)
-            #VALUES({row['cluster_id']}, {row['product_id']}, "{row['product_name']}", "{row['brand']}", "{row['link']}", {row['listed_price']},"{row['supermarket_name']}", "{row['date']}"
-            #);""")
 
             c = db.cursor()
             c.execute("""
